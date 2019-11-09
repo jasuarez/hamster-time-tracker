@@ -1,0 +1,39 @@
+From d869f7da0eec48df1f52771fed8ed12b12fbab61 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Toms=20Bau=C4=A3is?= <toms.baugis@gmail.com>
+Date: Sat, 3 Oct 2015 14:48:57 +0100
+Subject: [PATCH] temp remove WATCH_HARD_LINKS flag from file monitor as it
+ causes segfaults on gnome 3.18. closes #254
+
+---
+ src/hamster-service       | 3 +--
+ src/hamster/storage/db.py | 3 +--
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/src/hamster-service b/src/hamster-service
+index 681fe76..d3e260e 100755
+--- a/src/hamster-service
++++ b/src/hamster-service
+@@ -54,8 +54,7 @@ class Storage(db.Storage, dbus.service.Object):
+ 
+         self.__file = gio.File.new_for_path(__file__)
+         self.__monitor = self.__file.monitor_file(gio.FileMonitorFlags.WATCH_MOUNTS | \
+-                                                  gio.FileMonitorFlags.SEND_MOVED | \
+-                                                  gio.FileMonitorFlags.WATCH_HARD_LINKS,
++                                                  gio.FileMonitorFlags.SEND_MOVED,
+                                                   None)
+         self.__monitor.connect("changed", self._on_us_change)
+ 
+diff --git a/src/hamster/storage/db.py b/src/hamster/storage/db.py
+index 1c598e3..505d341 100644
+--- a/src/hamster/storage/db.py
++++ b/src/hamster/storage/db.py
+@@ -90,8 +90,7 @@ def on_db_file_change(monitor, gio_file, event_uri, event):
+ 
+             self.__database_file = gio.File.new_for_path(self.db_path)
+             self.__db_monitor = self.__database_file.monitor_file(gio.FileMonitorFlags.WATCH_MOUNTS | \
+-                                                                  gio.FileMonitorFlags.SEND_MOVED | \
+-                                                                  gio.FileMonitorFlags.WATCH_HARD_LINKS,
++                                                                  gio.FileMonitorFlags.SEND_MOVED,
+                                                                   None)
+             self.__db_monitor.connect("changed", on_db_file_change)
+ 

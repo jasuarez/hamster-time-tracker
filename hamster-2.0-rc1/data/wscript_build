@@ -1,0 +1,41 @@
+#!/usr/bin/env python2
+# encoding: utf-8
+
+bld.install_files('${DATADIR}/hamster-time-tracker', '*.ui')
+bld.install_files('${DATADIR}/hamster-time-tracker', 'hamster.db')
+bld.install_files('${DATADIR}/hamster-time-tracker/art', 'art/*.png')
+bld.install_files('${DATADIR}/hamster-time-tracker', 'report_template.html')
+
+bld.install_files('${DATADIR}/icons/hicolor/16x16/apps',   'art/16x16/hamster-time-tracker.png')
+bld.install_files('${DATADIR}/icons/hicolor/22x22/apps',   'art/22x22/hamster-time-tracker.png')
+bld.install_files('${DATADIR}/icons/hicolor/32x32/apps',   'art/32x32/hamster-time-tracker.png')
+bld.install_files('${DATADIR}/icons/hicolor/48x48/apps',   'art/scalable/hamster-time-tracker.png')
+bld.install_files('${DATADIR}/icons/hicolor/scalable/apps','art/scalable/hamster-time-tracker.svg')
+
+
+for filename in ["hamster-time-tracker.desktop",
+                 "hamster-time-tracker-overview.desktop",
+                 "hamster-windows-service.desktop"]:
+    bld(features = "subst",
+        source= "%s.in.in" % filename,
+        target= "%s.in" % filename,
+        dict = bld.env
+       )
+
+
+bld.add_group()
+
+# process .in files with intl_tool
+bld(features = 'intltool_in',
+    source   = 'hamster-time-tracker.schemas.in',
+    install_path = '${SYSCONFDIR}/gconf/schemas',
+    podir    = '../po',
+    flags    = ['-s', '-u', '-c'])
+
+bld(features = 'intltool_in',
+    source   = """hamster-time-tracker-overview.desktop.in
+                  hamster-time-tracker.desktop.in
+                  hamster-windows-service.desktop.in""",
+    install_path = '${DATADIR}/applications',
+    podir    = '../po',
+    flags    = ['-d', '-q', '-u', '-c'])

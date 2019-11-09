@@ -1,0 +1,22 @@
+From 80f97fb3bbb92a3a85589cec7387dec953044853 Mon Sep 17 00:00:00 2001
+From: Michael Kuhn <suraia@ikkoku.de>
+Date: Fri, 19 Feb 2016 20:11:13 +0100
+Subject: [PATCH] Fix division by zero (#245).
+
+---
+ src/hamster/overview.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/hamster/overview.py b/src/hamster/overview.py
+index 02a6ab3..ca895fb 100755
+--- a/src/hamster/overview.py
++++ b/src/hamster/overview.py
+@@ -132,7 +132,7 @@ def __init__(self, width=0, height=0, vertical=None, **kwargs):
+     def set_items(self, items):
+         """expects a list of key, value to work with"""
+         res = []
+-        max_value = sum((rec[1] for rec in items))
++        max_value = max(sum((rec[1] for rec in items)), 1)
+         for key, val in items:
+             res.append((key, val, val * 1.0 / max_value))
+         self._items = res

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+    <id type="desktop">hamster-time-tracker.desktop</id>
+    <licence>CC0</licence>
+    <description>
+        <p>
+            Project Hamster is time tracking for individuals. It helps you to keep track on
+            how much time you have spent during the day on activities you choose to track. 
+        </p>
+        <p>
+            Whenever you change from doing one task to other, you change your current
+            activity in Hamster. After a while you can see how many hours you have spent on
+            what. Maybe print it out, or export to some suitable format, if time reporting
+            is a request of your employee. 
+        </p>
+    </description>
+    <url type="homepage">http://projecthamster.wordpress.com/</url>
+    <screenshots>
+        <screenshot type="default">http://farm3.staticflickr.com/2715/4332774392_1302c2922e_o_d.png</screenshot>
+        <screenshot>http://farm5.staticflickr.com/4046/5160499613_576efc8441_b_d.jpg</screenshot>
+    </screenshots>
+    <updatecontact>toms.baugis@gmail.com</updatecontact>
+</application>
+

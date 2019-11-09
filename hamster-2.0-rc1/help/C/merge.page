@@ -1,0 +1,26 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="merge">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Automatic conflict solving.</desc>
+</info>
+<title>Splitting activities</title>
+
+<p>
+    <app>Time Tracker</app> does its best to avoid overlaps in activities.
+    If you create an activity in the middle of an existing activity, the former
+    will be split into two. In other cases of overlapping, the previous entries
+    will be shrunk.
+</p>
+<note style="info">
+    <p>
+        Merging can become handy when entering information for the whole
+        day. Start by entering the first activity and select the "in progress"
+        check box for the end time. For the next activity again set just the
+        start time and mark it as ongoing. Observe how the end time of the
+        previous activity gets adjusted to the start time of the new one.
+        Repeat the process until happy!
+    </p>
+</note>
+</page>

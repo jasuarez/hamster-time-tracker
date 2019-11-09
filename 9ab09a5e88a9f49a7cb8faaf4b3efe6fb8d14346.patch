@@ -1,0 +1,25 @@
+From 9ab09a5e88a9f49a7cb8faaf4b3efe6fb8d14346 Mon Sep 17 00:00:00 2001
+From: Cyrill Gorcunov <gorcunov@gmail.com>
+Date: Thu, 18 Feb 2016 22:08:02 +0300
+Subject: [PATCH] lib/configuration.py: Fix version warning
+
+Signed-off-by: Cyrill Gorcunov <gorcunov@gmail.com>
+---
+ src/hamster/lib/configuration.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/hamster/lib/configuration.py b/src/hamster/lib/configuration.py
+index e363087..c9ffb0d 100644
+--- a/src/hamster/lib/configuration.py
++++ b/src/hamster/lib/configuration.py
+@@ -22,6 +22,10 @@
+ License: GPLv2
+ """
+ 
++import gi
++gi.require_version('Gtk', '3.0')
++gi.require_version('GConf', '2.0')
++
+ import os
+ from hamster.client import Storage
+ from xdg.BaseDirectory import xdg_data_home

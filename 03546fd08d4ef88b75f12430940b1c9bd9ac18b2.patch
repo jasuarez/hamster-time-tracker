@@ -1,0 +1,46 @@
+From 03546fd08d4ef88b75f12430940b1c9bd9ac18b2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Toms=20Bau=C4=A3is?= <toms.baugis@gmail.com>
+Date: Sat, 3 Oct 2015 14:49:34 +0100
+Subject: [PATCH] fix warnings in the console (gnome 3.18; should be backwards
+ compat)
+
+---
+ src/hamster/idle.py      | 6 +++++-
+ src/hamster/lib/stuff.py | 3 +++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/src/hamster/idle.py b/src/hamster/idle.py
+index fb4a714..92d00d4 100644
+--- a/src/hamster/idle.py
++++ b/src/hamster/idle.py
+@@ -17,10 +17,14 @@
+ # You should have received a copy of the GNU General Public License
+ # along with Project Hamster.  If not, see <http://www.gnu.org/licenses/>.
+ 
++import dbus
+ import datetime as dt
++import gi
+ import logging
+-import dbus
++
+ from dbus.lowlevel import Message
++
++gi.require_version('GConf', '2.0')
+ from gi.repository import GConf as gconf
+ from gi.repository import GObject as gobject
+ 
+diff --git a/src/hamster/lib/stuff.py b/src/hamster/lib/stuff.py
+index 1b8464b..c492cb0 100644
+--- a/src/hamster/lib/stuff.py
++++ b/src/hamster/lib/stuff.py
+@@ -21,7 +21,10 @@
+ # some widgets that repeat all over the place
+ # cells, columns, trees and other
+ 
++import gi
+ import logging
++
++gi.require_version('Gtk', '3.0')
+ from gi.repository import Gtk as gtk
+ from gi.repository import Pango as pango
+ 

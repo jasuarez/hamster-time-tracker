@@ -1,0 +1,25 @@
+From 91709dad223aef858d86a803116dbf1ea9bce531 Mon Sep 17 00:00:00 2001
+From: "Ankur Sinha (Ankur Sinha Gmail)" <sanjay.ankur@gmail.com>
+Date: Sat, 12 Mar 2016 17:32:11 +0000
+Subject: [PATCH] Fix TargetFlags.
+
+Should fix #306
+---
+ src/hamster/preferences.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/hamster/preferences.py b/src/hamster/preferences.py
+index 52c06cf..75dae97 100755
+--- a/src/hamster/preferences.py
++++ b/src/hamster/preferences.py
+@@ -265,8 +265,8 @@ def on_category_list_drag_motion(self, treeview, drag_context, x, y, eventtime):
+         except:
+             return
+ 
+-        drop_yes = ("drop_yes", gtk.TARGET_SAME_APP, 0)
+-        drop_no = ("drop_no", gtk.TARGET_SAME_APP, 0)
++        drop_yes = ("drop_yes", gtk.TargetFlags.SAME_APP, 0)
++        drop_no = ("drop_no", gtk.TargetFlags.SAME_APP, 0)
+ 
+         if drop_position != gtk.TREE_VIEW_DROP_AFTER and \
+            drop_position != gtk.TREE_VIEW_DROP_BEFORE:

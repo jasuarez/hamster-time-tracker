@@ -1,0 +1,20 @@
+--- a/wscript	2013-11-30 16:25:29.490867297 +1100
++++ b/wscript	2013-11-30 16:25:58.016648492 +1100
+@@ -42,7 +42,7 @@
+ 
+ 
+ def build(bld):
+-    bld.install_files('${LIBDIR}/hamster-time-tracker',
++    bld.install_files('${BINDIR}/',
+                       """src/hamster-service
+                          src/hamster-windows-service
+                       """,
+@@ -85,7 +85,7 @@
+     def post(ctx):
+         # Postinstall tasks:
+         # gnome.postinstall_scrollkeeper('hamster-time-tracker') # Installing the user docs
+-        gnome.postinstall_schemas('hamster-time-tracker') # Installing GConf schemas
++        #gnome.postinstall_schemas('hamster-time-tracker') # Installing GConf schemas
+         gnome.postinstall_icons() # Updating the icon cache
+ 
+ 

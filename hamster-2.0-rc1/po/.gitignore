@@ -1,0 +1,6 @@
+.intltool-merge-cache
+POTFILES
+stamp-it
+Makefile.in.in
+hamster-time-tracker.pot
+*.gmo

@@ -1,0 +1,55 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="input">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Tricks to speed up activity entry.</desc>
+</info>
+<title>Input</title>
+
+<p>
+    To start tracking, type in the activity name in the input box and hit the
+    <key>Enter</key> key.
+    To specify more detail on the fly, use this syntax: 
+    `time_info activity name @category, some description #tag #other tag with spaces`.
+</p>
+
+<steps>
+    <item><p>Specify specific times as `13:10-13:45`, and "started 5 minutes ago" as `-5`.</p></item>
+    <item><p>Next comes the activity name</p></item>
+    <item><p>Place the category after the activity name, and start it with an at sign `@`, e.g. `@garden`</p></item>
+    <item><p>If you want to add a description and/or tags, add a comma `,`.
+    <item><p>The description is just freeform text immediately after the comma, and runs until the end of the string or until the first tag.</p></item>
+    <item><p>Place tags at the end, and start each tag with a hash mark `#`.</p></item>
+</steps>
+
+<p>
+    A few examples:
+</p>
+<example>
+    <code>12:30-12:45 watering flowers</code>
+    <p>Forgot to note the important act of watering flowers over lunch.</p>
+</example>
+<example>
+    <code>tomatoes@garden, digging holes</code>
+    <p>
+        Need more tomatoes in the garden. Digging holes is purely informational,
+        so added it as a description.
+    </p>
+</example>
+<example>
+    <code>-7 existentialism, thinking about the vastness of the universe</code>
+    <p>
+        Corrected information by informing application that I've been
+        doing something else for the last seven minutes. Relative times only
+        work for ongoing activities without an end time.
+    </p>
+</example>
+
+<p>
+    On top of that you can add tags in the tag input field.
+    Tags are delimited by a comma. Press the <key>Tab</key> when the suggestion
+    box appears to complete the input to the first matching tag.
+</p>
+
+</page>
